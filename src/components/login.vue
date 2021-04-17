@@ -31,7 +31,7 @@ export default {
                 console.log(res);
                 if (res.data.code == 1){
                     alert("login success");
-                    this.$router.push('/login');
+                    this.$router.push('/loginsuccess');
                 }
             })
         },
