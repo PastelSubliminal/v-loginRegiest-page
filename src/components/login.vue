@@ -27,7 +27,13 @@ export default {
             api.post('/api/user/login/', {
                 email: this.ruleForm.email,
                 password: this.ruleForm.password
-            }).then()
+            }).then((res) => {
+                console.log(res);
+                if (res.data.code == 1){
+                    alert("login success");
+                    this.$router.push('/login');
+                }
+            })
         },
         clearAll(){
             this.ruleForm.email=""
