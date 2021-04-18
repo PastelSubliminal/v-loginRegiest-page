@@ -1,12 +1,13 @@
 <template>
     <div class="login">
         登录
-            <form ><input type="text" v-model="ruleForm.email" class="login-item" placeholder="邮箱"></form>
-            <form><input type="password" v-model="ruleForm.password" class="login-item" placeholder="密码" name="" id=""></form>
-            <button @click="submitForm()">登录</button>
-            <button @click="clearAll()">清空</button>
-            <a href="#">忘记密码?</a>
-        <a href="#/register">还没有账号？点击注册</a>
+        <form ><input type="text" v-model="ruleForm.email" class="login-item" placeholder="邮箱"></form>
+        <form><input type="password" v-model="ruleForm.password" class="login-item" placeholder="密码" name="" id=""></form>
+        <button @click="submitForm()">登录</button>
+        <button @click="clearAll()">清空</button>
+        <div><a href="#">忘记密码?</a></div>
+        <div><a href="#/register">还没有账号？点击注册</a></div>
+        <div><a href="/">返回</a></div>
     </div>
 </template>
 <script>

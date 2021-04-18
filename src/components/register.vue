@@ -12,7 +12,8 @@
             <form class="licenseAccept"><input type="checkbox" :checked='licenseAccept' @click="setLicenseAccept()"></form><p>我同意使用条款和用户协议</p>
             <button @click="submitForm()">注册</button><button @click="clearAll()">清空</button>
         </form>
-        <a href="#/login">已经注册？点击登录</a>
+        <div><a href="#/login">已经注册？点击登录</a></div>
+        <div><a href="/">返回</a></div>
     </div>
 </template>
 <script>
