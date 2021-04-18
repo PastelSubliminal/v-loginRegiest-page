@@ -32,6 +32,8 @@ export default {
                 if (res.data.code == 1){
                     alert("login success");
                     this.$router.push('/loginsuccess');
+                } else {
+                    alert("登陆失败，" + `res.data.message`)
                 }
             })
         },
