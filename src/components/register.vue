@@ -25,7 +25,7 @@ export default {
     data(){
         return{
             licenseAccept: false,
-            sendRegisterVerifyEmail: false,
+            sendRegisterVerifyEmail: true,
             captchaImg: '',
             captcha: {
                 ID: ''
@@ -46,17 +46,21 @@ export default {
             this.licenseAccept = !this.licenseAccept
         },
         varifyCaptcha(){
-            // console.log("varifyCaptcha==", this.ruleForm.captcha)
-            api.post('/api/public/verifyCaptcha', {
-                ID: this.captcha.ID,
-                digitalStr: this.digitalStr
-            }).then((res) => {
-                console.log('ID==',this.captcha.ID)
-                console.log('digitalStr==', this.digitalStr)
-                if(res.data.code === 1){
-                this.sendRegisterVerifyEmail = false
-                }
-            })
+            if(this.digitalStr.length == 6){
+                api.post('/api/public/verifyCaptcha', {
+                    ID: this.captcha.ID,
+                    digitalStr: this.digitalStr
+                }).then((res) => {
+                    console.log('ID==',this.captcha.ID)
+                    console.log('digitalStr==', this.digitalStr)
+                    console.log(res)
+                    if(res.data.code === 1){
+                    this.sendRegisterVerifyEmail = false
+                    } else {
+                        alert("验证失败，请点击验证码刷新重试")
+                    }
+                })
+            }
         },
         getCaptchaImg(){
             api.get('/api/public/getCaptcha').then((res) => {
@@ -85,7 +89,7 @@ export default {
                     alert("注册成功")
                     // this.$router.push('/login')
                 }else{
-                    alert("注册失败")
+                    alert(`注册失败` + `${res.data.message}`)
                     // this.message.error(res.data.message)
                 }
             })
