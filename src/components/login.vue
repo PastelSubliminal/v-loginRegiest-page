@@ -24,7 +24,7 @@ export default {
     methods:{
         submitForm(){
             console.log("login")
-            api.post('/api/user/login/', {
+            api.post('/api/user/login', {
                 email: this.ruleForm.email,
                 password: this.ruleForm.password
             }).then((res) => {
